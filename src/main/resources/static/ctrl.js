@@ -4,15 +4,9 @@ var app = angular.module('ctrl',['ngRoute']);
     
         $routeProvider
         .when("/", {
-            /**
-             * Free Routes
-             **/
             templateUrl : '/home.html',
             controller:"registerController"
         }).when("/addrest", {
-            /**
-             * Free Routes
-             **/
             templateUrl : '/addRest.html',
             controller:"resturantController"
         }).when("/register", {
@@ -83,30 +77,8 @@ var app = angular.module('ctrl',['ngRoute']);
      
  
     });
-    /****
-     * 
-     * 
-     * Payment
-     */
-    
-//app.controller('paymentController', function($scope,$http,$location){
-//  alert("paymentController here");
-//  $scope.pay = function(){
-//      var url="/add/payment";
-//      var payment = $scope.payy;
-//      var paymentProcess= $http.post(url,payment)
-//              .then(function(response){
-//                 
-//      });
-//       $location.url('/admin');
-//      alert("payment saved")
-//  };
-//  
-//  /* displaying *payment items*/
-//  $http.get("/all/payments").then(function(response){
-//      $scope.payments = response.data;
-//  });
-//});  
+   
+ 
 app.controller('registerController',function($scope,$http,$location,$rootScope){
    alert("register Accccc");
    
@@ -139,7 +111,7 @@ app.controller('registerController',function($scope,$http,$location,$rootScope){
            * Request 
            */   
 app.controller('requestController', function($scope,$http,$location){
-    alert("jkjfdkjdkjfd");
+    alert("requestController Active");
      $scope.addme = function(){
             var url = "/request";
 
@@ -150,9 +122,7 @@ app.controller('requestController', function($scope,$http,$location){
             $location.url("/");
             };
       
-//  $http.get("/all/request").then(function(response){
-//      $scope.requests = response.data;
-//  });
+
     
 });          
              
@@ -206,7 +176,8 @@ app.controller('requestController', function($scope,$http,$location){
    /*
     * ***********************************************
     * ***********************************************
-    * ADMIN Controller
+    * ADMIN Controller                              |
+	*************************************************
     */
     app.controller('adminController',function($http,$scope,$location){
    
@@ -469,28 +440,6 @@ $scope.listCustomers = [];
   });
     
    });//end admin cntrl
-   
-   /*
-    * User Service To share all user info accross the user session
-    */
- app.service('user', function(){
-     var name;
-     var loggedin = false;
-     this.setFirstName =function(name){
-         name=firstName;
-         
-     };
-     this.getFirstName = function(){
-         return firstName;
-     };
-     this.isUserloggedIn = function(){
-         return loggedIn;
-     };
-     this.userLoggedIn = function(){
-         loggedin=true;
-     };    
-     
- });  
  
 app.controller('resturantController',function($http,$scope,$location,user){
     
