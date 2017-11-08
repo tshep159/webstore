@@ -1,0 +1,58 @@
+<div class="container">
+
+
+                   <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">FREE DELIVERY ON YOUR FIRST ORDER</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      
+      
+      <ul class="nav navbar-nav navbar-right">
+      Hi!  Please <a href="/login" onclick="window.location.reload(true)" style="color: maroon; font-weight: bold">log in</a> or 
+      <a href="/register" onclick="window.location.reload(true)" style="color: maroon; font-weight: bold">Register</a> or 
+    
+      </ul>
+    </div>
+  </div>
+</nav>
+            <div class = "col-md-4"  >
+                
+                <div style ="margin-top: 20%; float:right "    >
+                   
+                    
+                    <div id="header" ng-if="user !== null " style="font-size: 16px; color: gray; font-style: italic ; font-weight: bold">
+                     
+                         
+                
+                         
+                         <a ng-click="logout()" onclick="window.location.reload(true)" style="color: maroon; font-weight: bold">logout</a>
+                         <br></br>
+                         
+                         
+                    </div>
+                    
+                    <div ng-if="user === null ">
+                        
+                         Hi!  Please <a href="/login" onclick="window.location.reload(true)" style="color: maroon; font-weight: bold">log in</a> or 
+                        <a ng-click="reg()" style="color: maroon; font-weight: bold" >register</a>
+                        <a href="/login">login</a>
+                        </div > 
+                   
+                    
+                    
+                      </div>
+                
+                    </div>
+        
+  
+       
+</div>

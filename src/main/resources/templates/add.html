@@ -1,0 +1,37 @@
+
+    <style>
+    .header {
+	width: 40%;
+	margin: 50px auto 0px;
+	color: white;
+	background: #7926c1;
+	text-align: center;
+	border: 1px solid #B0C4DE;
+	border-bottom: none;
+	border-radius: 10px 10px 0px 0px;
+	padding: 20px;
+    }
+</style>  
+       <br/><br/> <br/><br/> <br/><br/>
+            <div class="header">
+                <h2>Sign In</h2>
+            </div>
+   <center>
+<form ng-submit="restlogin()" ng-controller="loginController" >
+             
+<br/><br/> 
+                <input type="email" required="true" placeholder="Email" ng-model="email" style="width: 40%;" class="form-control" id="email"/> 
+
+                <br/><br/>
+
+
+                <input type="password" placeholder="Password" ng-model="password" style=" width: 40%;" class="form-control" id="pwd"/>
+
+                <br/><br/>
+                <button type="submit"  style="width: 30%;background: #7926c1;align:left;" class="btn">Submit</button><a href="http://localhost:8080/#!/register">New Member??</a>
+            <br/><br/> <br/><br/><br/><br/> <br/><br/>
+            </form>
+                   
+            </center>
+
+          

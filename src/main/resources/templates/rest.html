@@ -1,0 +1,26 @@
+<div class="col-lg-9">
+
+<h1 class="card card-text" ng-controller="registerController">Restaurants</h1>
+<input class="form-control ng-valid" placeholder="Search..." style="width: 40%;text-align:center;" ng-model="searchKeyword" type="text"/>
+     <div class="row">
+
+            <div class="col-lg-4 col-md-6 mb-4" ng-repeat="rest in rests  | filter: searchKeyword">
+              <div class="card h-100">
+                <a href="#"><img class="card-img-top" ng-src="{{rest.image}}" alt="Restaurant Pic"/></a>
+                <div class="card-body">
+                  <h4 class="card-title">
+                    <a href="#">{{rest.firstName}}</a>
+                  </h4>
+                    <h5>Address</h5>
+                  <p class="card-text">
+                    Street :  {{rest.street}}<br/>
+                    Town :  {{rest.town}}
+                  </p>
+                </div>
+                <div class="card-footer">
+                 <small class="text-muted">===============</small>
+                </div>
+              </div>
+            </div>
+          </div>
+</div>

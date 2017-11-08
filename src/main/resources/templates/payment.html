@@ -1,0 +1,43 @@
+ <style>
+    .header {
+	width: 40%;
+	margin: 50px auto 0px;
+	color: white;
+	background: #7926c1;
+	text-align: center;
+	border: 1px solid #B0C4DE;
+	border-bottom: none;
+	border-radius: 10px 10px 0px 0px;
+	padding: 20px;
+    }
+</style> 
+<div class="header">
+    <h2>Payment Details</h2>
+</div>
+
+
+
+
+<center>
+    
+    <form name="paymentForm" ng-submit="pay()">
+     <label for="holder">Card Holder  </label>
+     <input type="text" ng-model="payy.holder" class="form-control" id="holder" style="width: 40%;text-align:center;"/>
+    
+     
+     <label for="number">Card Number  </label>
+    <input type="text" ng-model="payy.number" class="form-control" id="number" style="width: 40%;text-align:center;"/>
+
+    <label for="date">Expiration Date</label>
+    <input type="text" ng-model="payy.cvv" style="width: 40%;text-align:center;height: 30px" placeholder="YYYY-MM-DD" class="form-control" id="date"/>
+
+    <label for="cvv">CVV Code   </label>
+    <input type="cell" ng-model="payy.exp" style="width: 40%;text-align:center;" class="form-control" id="cvv"/>
+
+    <br/><br/>    
+    
+    
+     <input type="submit" class="btn " ng-click="register()" name="Register" style="width: 25%;background: #7926c1; align:left;" />
+</form>
+</center>
+<br/>

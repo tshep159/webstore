@@ -1,0 +1,114 @@
+<style>
+    .header {
+	width: 40%;
+	margin: 50px auto 0px;
+	color: white;
+	background: #7926c1;
+	text-align: center;
+	border: 1px solid #B0C4DE;
+	border-bottom: none;
+	border-radius: 10px 10px 0px 0px;
+	padding: 20px;
+    }
+</style>     
+<center>
+
+
+        <form ng-controller="registerController"  ng-submit="register()"> 
+    <div class="header">
+    <h2>Sign Up</h2>
+
+
+   
+    
+    </div>
+    <label for="usr">Fist Name  </label>
+
+    <input type="text" ng-model="cus.firstName" class="form-control" id="usr" style="width: 40%;text-align:center;"/>
+
+
+
+    <label for="sur">Last Name  </label>
+
+    <input type="text" ng-model="cus.lastName" class="form-control" id="sur" style="width: 40%;text-align:center;"/>
+
+    <label>Email</label>
+
+    <input type="email" ng-model="cus.email" style="width: 40%;text-align:center;height: 30px" placeholder="person@email.com" class="form-control" id="email"/>
+
+    <label for="pass">Cell   </label>
+
+    <input type="cell" ng-model="cus.contactNumber" style="width: 40%;text-align:center;" class="form-control" id="pass"/>
+
+    <label for="ccell">Confirm Cell   </label>
+
+    <input type="text" ng-model="cus.ccell" style="width: 40%;text-align:center;" class="form-control" id="ccell"/>
+    <br/><br/>
+    <input type="submit" class="btn "  name="Register" style="width: 25%;background: #7926c1; align:left;" /><a href="#!/login">Already have an account??</a>
+<br/><br/>
+        </form>
+
+{{mgs}}
+</center>
+
+              
+          
+            
+                
+     <!--   
+        <input type="text" ng-model="productName" />
+        <table ng-show="products.length > 0">
+            <tr ng-controller="productController" ng-repeat="product in products | filter:'productName'">
+                <td>
+                    {{product.name}}
+                </td>   
+                <td>
+                    {{product.price}}
+                </td>  
+                 
+                <td>
+                    {{product.quantity}}
+                </td>   
+                <td>
+                    <button ng-click="addCartItem(product)" ></button>
+                </td>
+            </tr>
+        </table>
+        <h2>Shopping cart</h2>
+            <table ng-show="cart.length > 0">
+                <p ng-hide="cart.count() > 0">
+				Your cart is empty.
+			</p>
+            <tr>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>&nbsp;</th>
+            </tr>
+            <tr ng-repeat="item in cart">
+                <td>
+                    {{item.name}}
+                </td>   
+                <td>
+                    {{item.price}}
+                </td>   
+                <td>
+                   
+                </td>
+                <td> 
+                    <button ng-click="increase(item)" class="btn btn-primary"><h4>+</h4></button> 
+                    <button ng-click="decrease(item)" class="btn btn-danger">-</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                  R  {{ cartSum() }}
+                </td>
+                {{count}}
+            </tr>
+        </table>
+ -->
+
+    
+         
+        

@@ -1,0 +1,55 @@
+
+<style>
+    .header {
+	width: 40%;
+	margin: 50px auto 0px;
+	color: white;
+	background: #7926c1;
+	text-align: center;
+	border: 1px solid #B0C4DE;
+	border-bottom: none;
+	border-radius: 10px 10px 0px 0px;
+	padding: 20px;
+    }
+</style>     
+<center>
+
+
+        <form ng-controller="requestController"  ng-submit="addme()"> 
+    <div class="header">
+    <h2>Request</h2>
+    </div>
+             <label for="usr">Fist Name  </label>
+
+    <input type="text" ng-model="req.name" class="form-control" id="usr" style="width: 40%;text-align:center;"/>
+
+
+
+    <label for="sur">Last Name  </label>
+
+    <input type="text" ng-model="req.lname" class="form-control" id="sur" style="width: 40%;text-align:center;"/>
+    <label for ="email">Email</label>
+    <input type="email" ng-model="req.email" class="form-control" id="email" style="width: 40%;text-align:center;"/>   
+      <br/>
+    <label for="type" class="col-lg-2 control-label">Type</label>
+      
+        <div style="width: 40%;text-align:center;">
+        <select class="form-control" id="type" ng-model="req.type">
+            <option value="driver">Driver</option>
+            <option value="partner">Partner</option>
+          
+          
+         
+        </select> 
+      </div>
+          
+             
+ <br/><br/>
+        <textarea  id="textArea" style="width: 40%;text-align:center;" ng-model="req.discription"></textarea>
+        <br/><br/> 
+        <input type="submit" class="btn "  name="Submit" style="width: 25%;background: #7926c1; align:left;" ng-click="addme()" />
+        <br/><br/>
+        </form>
+</center>
+
+   

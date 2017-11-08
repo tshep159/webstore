@@ -1,0 +1,80 @@
+
+<div class="product-block" style="background:#2aabd2;">
+    
+    <a href="#!/logout"  class="btn btn-primary fa fa-unlock">Sign Out</a>	
+<h1> Please Pick Orders And deliver Thank You</h1>
+<div class="row">
+<div class="col-lg-4 col-md-6 mb-4" ng-repeat="product in listOrders">
+      <div class="card h-100">
+        <a href="#"><img class="card-img-top" ng-src="{{rest.image}}" alt="Restaurant Pic"/></a>
+        <div class="card-body">
+          <h4 class="card-title">
+            <a href="#">{{rest.name}}</a>
+          </h4>
+            <h5>Address</h5>
+           <h5 class="card-title">  Order ID: {{product.orderDetailsId}}</h5>
+            <p class="card-text text">User Email: {{product.email}}</p>
+            <p class="card-text price">Order Price {{product.price}}</p>
+            <p class="card-text text">Date : {{product.dateCreated}}</p>
+            <p class="card-text text">Status :{{product.status}}</p>
+            <p class="card-text text">Type : {{product.type}}</p>
+            <p class="card-text text">Product Name :{{product.name}}</p>
+            </div>
+        <div class="card-footer">
+            <small class="text-muted"><center></center></small>
+        </div>
+      </div>
+    </div>
+    </div>
+</div>
+
+<h4>Search order By Id</h4>
+<input class="form-control ng-valid" placeholder="Search..." style="width: 40%;text-align:center;" ng-model="searchKeyword" type="text"/>
+
+	<h3>Orders List:</h3>
+    <div ng-repeat="cust in listOrders  | filter: searchKeyword">
+	    <form class="form-inline" ng-submit="selectCustomer($index)">
+		  <div class="form-group">
+		    <label for="id">Id:</label>
+		    <input type="text" class="form-control" id="id" ng-model="cust.orderDetailsId" disabled="disabled"/>
+		  </div>
+		  <div class="form-group">
+		    <label for="name">Name:</label>
+		    <input type="text" class="form-control" id="name" ng-model="cust.user_id" disabled="disabled"/>
+		  </div>
+		  <button type="submit" class="btn btn-default">Select</button>
+		</form>
+    </div>
+    <div class="row col-md-6">
+    	<h3>Order Info: </h3>
+		<form ng-submit="updateCustomer()" style='background-color:#7FA7B0; color:white; padding:20px 20px 20px 20px'>
+		  <div class="form-group">
+		    <label>Id</label>
+		    <input type="text" class="form-control" ng-model="selectedOrder.orderDetailsId" disabled="disabled"/>
+		  </div>
+		  <div class="form-group">
+		    <label>Status</label>
+		    
+		    <select ng-model="selectedOrder.status" style="width: 80%;text-align: center;" class="form-control">
+                        <option value="delivered">Delivered</option>
+                        <option value="declined">Declined</option>
+                       
+                      </select>
+                  
+                  </div>
+		  
+		  <button type="submit" class="btn btn-default">Update</button>
+		</form>
+		
+		<!-- Update Messages -->
+		<div ng-if="putMessage!==undefined">
+			<div class="alert alert-success alert-dismissable" ng-if="!error">
+				<a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+			  	<strong>{{putMessage}}</strong>
+			</div>
+			<div class="alert alert-danger alert-dismissable" ng-if="error">
+				<a class="close" data-dismiss="alert" aria-label="close">×</a>
+				<strong>{{}}</strong>
+			</div>
+		</div>
+    </div>

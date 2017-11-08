@@ -1,0 +1,544 @@
+  <style>
+
+	.modal.left .modal-dialog,
+	.modal.right .modal-dialog {
+		position: fixed;
+		margin: auto;
+		width: 30%;
+		height: auto;
+		-webkit-transform: translate3d(0%, 0, 0);
+		    -ms-transform: translate3d(0%, 0, 0);
+		     -o-transform: translate3d(0%, 0, 0);
+		        transform: translate3d(0%, 0, 0);
+	}
+
+	.modal.left .modal-content,
+	.modal.right .modal-content {
+		height: 100%;
+		overflow-y: auto;
+	}
+	
+	.modal.left .modal-body,
+	.modal.right .modal-body {
+		padding: 15px 15px 80px;
+	}
+
+        
+/*Right*/
+	.modal.right.fade .modal-dialog {
+		right: -320px;
+		-webkit-transition: opacity 0.3s linear, right 0.3s ease-out;
+		   -moz-transition: opacity 0.3s linear, right 0.3s ease-out;
+		     -o-transition: opacity 0.3s linear, right 0.3s ease-out;
+		        transition: opacity 0.3s linear, right 0.3s ease-out;
+	}
+	
+	.modal.right.fade.in .modal-dialog {
+		right: 0;
+	}
+
+/* ----- MODAL STYLE ----- */
+	.modal-content {
+		border-radius: 0;
+		border: none;
+	}
+
+	.modal-header {
+		border-bottom-color:  #025aa5;
+		background-color: #ccc;
+	}
+
+
+.demo {
+	padding-top: 60px;
+	padding-bottom: 110px;
+}
+
+.btn-demo {
+	margin: 15px;
+	padding: 10px 15px;
+	border-radius: 0;
+	font-size: 16px;
+	background-color: #FFFFFF;
+}
+
+.btn-demo:focus {
+	outline: 0;
+}
+
+.demo-footer {
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	padding: 15px;
+	background-color: #212121;
+	text-align: center;
+}
+
+.demo-footer > a {
+	text-decoration: none;
+	font-weight: bold;
+	font-size: 16px;
+	color: #fff;
+}    
+                    
+                    
+                </style>
+   <style>
+    html,body,.wrapper{
+    background: #f7f7f7;
+}
+.steps {
+    margin-top: -41px;
+    display: inline-block;
+    float: right;
+    font-size: 16px
+}
+.step {
+    float: left;
+    background: white;
+    padding: 7px 13px;
+    border-radius: 1px;
+    text-align: center;
+    width: 100px;
+    position: relative
+}
+.step_line {
+    margin: 0;
+    width: 0;
+    height: 0;
+    border-left: 16px solid #fff;
+    border-top: 16px solid transparent;
+    border-bottom: 16px solid transparent;
+    z-index: 1008;
+    position: absolute;
+    left: 99px;
+    top: 1px
+}
+.step_line.backline {
+    border-left: 20px solid #f7f7f7;
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+    z-index: 1006;
+    position: absolute;
+    left: 99px;
+    top: -3px
+}
+.step_complete {
+    background: #357ebd
+}
+.step_complete a.check-bc, .step_complete a.check-bc:hover,.afix-1,.afix-1:hover{
+    color: #eee;
+}
+.step_line.step_complete {
+    background: 0;
+    border-left: 16px solid #357ebd
+}
+.step_thankyou {
+    float: left;
+    background: white;
+    padding: 7px 13px;
+    border-radius: 1px;
+    text-align: center;
+    width: 100px;
+}
+.step.check_step {
+    margin-left: 5px;
+}
+.ch_pp {
+    text-decoration: underline;
+}
+.ch_pp.sip {
+    margin-left: 10px;
+}
+.check-bc,
+.check-bc:hover {
+    color: #222;
+}
+.SuccessField {
+    border-color: #458845 !important;
+    -webkit-box-shadow: 0 0 7px #9acc9a !important;
+    -moz-box-shadow: 0 0 7px #9acc9a !important;
+    box-shadow: 0 0 7px #9acc9a !important;
+    background: #f9f9f9 url(../images/valid.png) no-repeat 98% center !important
+}
+
+.btn-xs{
+    line-height: 28px;
+}
+
+/*login form*/
+.login-container{
+    margin-top:30px ;
+}
+.login-container input[type=submit] {
+  width: 100%;
+  display: block;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.login-container input[type=text], input[type=password] {
+  height: 44px;
+  font-size: 16px;
+  width: 100%;
+  margin-bottom: 10px;
+  -webkit-appearance: none;
+  background: #fff;
+  border: 1px solid #d9d9d9;
+  border-top: 1px solid #c0c0c0;
+  /* border-radius: 2px; */
+  padding: 0 8px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+
+.login-container input[type=text]:hover, input[type=password]:hover {
+  border: 1px solid #b9b9b9;
+  border-top: 1px solid #a0a0a0;
+  -moz-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+  -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.login-container-submit {
+  /* border: 1px solid #3079ed; */
+  border: 0px;
+  color: #fff;
+  text-shadow: 0 1px rgba(0,0,0,0.1); 
+  background-color: #357ebd;/*#4d90fe;*/
+  padding: 17px 0px;
+  font-family: roboto;
+  font-size: 14px;
+  /* background-image: -webkit-gradient(linear, 0 0, 0 100%,   from(#4d90fe), to(#4787ed)); */
+}
+
+.login-container-submit:hover {
+  /* border: 1px solid #2f5bb7; */
+  border: 0px;
+  text-shadow: 0 1px rgba(0,0,0,0.3);
+  background-color: #357ae8;
+  /* background-image: -webkit-gradient(linear, 0 0, 0 100%,   from(#4d90fe), to(#357ae8)); */
+}
+
+.login-help{
+  font-size: 12px;
+}
+
+.asterix{
+    background:#f9f9f9 url(../images/red_asterisk.png) no-repeat 98% center !important;
+}
+
+/* images*/
+ol, ul {
+  list-style: none;
+}
+.hand {
+  cursor: pointer;
+  cursor: pointer;
+}
+.cards{
+    padding-left:0;
+}
+.cards li {
+  -webkit-transition: all .2s;
+  -moz-transition: all .2s;
+  -ms-transition: all .2s;
+  -o-transition: all .2s;
+  transition: all .2s;
+  background-image: url('//c2.staticflickr.com/4/3713/20116660060_f1e51a5248_m.jpg');
+  background-position: 0 0;
+  float: left;
+  height: 32px;
+  margin-right: 8px;
+  text-indent: -9999px;
+  width: 51px;
+}
+.cards .mastercard {
+  background-position: -51px 0;
+}
+.cards li {
+  -webkit-transition: all .2s;
+  -moz-transition: all .2s;
+  -ms-transition: all .2s;
+  -o-transition: all .2s;
+  transition: all .2s;
+  background-image: url('//c2.staticflickr.com/4/3713/20116660060_f1e51a5248_m.jpg');
+  background-position: 0 0;
+  float: left;
+  height: 32px;
+  margin-right: 8px;
+  text-indent: -9999px;
+  width: 51px;
+}
+.cards .amex {
+  background-position: -102px 0;
+}
+.cards li {
+  -webkit-transition: all .2s;
+  -moz-transition: all .2s;
+  -ms-transition: all .2s;
+  -o-transition: all .2s;
+  transition: all .2s;
+  background-image: url('//c2.staticflickr.com/4/3713/20116660060_f1e51a5248_m.jpg');
+  background-position: 0 0;
+  float: left;
+  height: 32px;
+  margin-right: 8px;
+  text-indent: -9999px;
+  width: 51px;
+}
+.cards li:last-child {
+  margin-right: 0;
+}
+/* images end */
+
+
+
+/*
+ * BOOTSTRAP
+ */
+.container{
+    border: none;
+}
+.panel-footer{
+    background:#fff;
+}
+.btn{
+    border-radius: 1px;
+}
+.btn-sm, .btn-group-sm > .btn{
+    border-radius: 1px;
+}
+.input-sm, .form-horizontal .form-group-sm .form-control{
+    border-radius: 1px;
+}
+
+.panel-info {
+    border-color: #999;
+}
+
+.panel-heading {
+    border-top-left-radius: 1px;
+    border-top-right-radius: 1px;
+}
+.panel {
+    border-radius: 1px;
+}
+.panel-info > .panel-heading {
+    color: #eee;
+    border-color: #999;
+}
+.panel-info > .panel-heading {
+    background-image: linear-gradient(to bottom, #555 0px, #888 100%);
+}
+
+hr {
+    border-color: #999 -moz-use-text-color -moz-use-text-color;
+}
+
+.panel-footer {
+    border-bottom-left-radius: 1px;
+    border-bottom-right-radius: 1px;
+    border-top: 1px solid #999;
+}
+
+.btn-link {
+    color: #888;
+}
+
+hr{
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+/** MEDIA QUERIES **/
+@media only screen and (max-width: 989px){
+    .span1{
+        margin-bottom: 15px;
+        clear:both;
+    }
+}
+
+@media only screen and (max-width: 764px){
+    .inverse-1{
+        float:right;
+    }
+}
+
+@media only screen and (max-width: 586px){
+    .cart-titles{
+        display:none;
+    }
+    .panel {
+        margin-bottom: 1px;
+    }
+}
+
+.form-control {
+    border-radius: 1px;
+}
+
+@media only screen and (max-width: 486px){
+    .col-xss-12{
+        width:100%;
+    }
+    .cart-img-show{
+        display: none;
+    }
+    .btn-submit-fix{
+        width:100%;
+    }
+    
+}
+/*
+@media only screen and (max-width: 777px){
+    .container{
+        overflow-x: hidden;
+    }
+}*/
+</style>             
+<a href="#!/logout"  class="btn btn-primary fa fa-unlock">Sign Out</a>	
+
+    <div class="text-center" style="padding-left: 85%;">
+
+
+<ul style="align: right;">
+<div class="center"><button data-toggle="modal" data-target="#squarespaceModal" class=" btn btn-primary fa fa-shopping-cart"> {{cartItems.length}}</button></div>
+
+
+<!-- line modal -->
+<div class="modal fade" id="squarespaceModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+	<div class="modal-content">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+			<h3 class="modal-title" id="lineModalLabel">My Modal</h3>
+		</div>
+		<div class="modal-body">
+			
+            <!-- content goes here -->
+			
+              <table class = "table">
+                        <thead>
+                                <tr>
+                                    <th>Product</th>
+                                        <th>Image</th>
+                                        <th>Price</th>
+                                        <th>Quantity</th>
+                                        <th>Action</th>
+                                </tr>
+                        </thead>
+                        <tbody>
+                                <tr ng-repeat = "cart in cartItems" ng-init = "setTotals(cart)">
+                                        <td>{{cart.name}}</td>
+                                        <td> <img ng-src="{{cart.image}}" style="width:40px;height: 50px;"/></td>
+                                        <td>R{{cart.price}}</td>
+                                        <td>{{cart.quantity}}</td>
+                                        <td> <button ng-click="cart.increase(item)" class="btn btn-primary">+</button> 
+                                             <button ng-click="cart.decrease(item)" class="btn btn-danger">-</button></td>
+                                </tr>
+                                <tr>
+                                        <td align = "right">Total</td>
+                                        <td>R{{total}}</td>
+
+                               </tr>
+                               <tr>
+                                   <td></td>
+                      <td></td>
+
+                               </tr>
+                        </tbody>
+                </table>
+           
+		<div class="modal-footer">
+			<div class="btn-group btn-group-justified" role="group" aria-label="group button">
+				<div class="btn-group" role="group">
+					
+                                    <a  href="" class="btn btn-success" ng-click="checkOut()">Checkout</a>
+                                    <button type="button" class="btn btn-primary" data-dismiss="modal"  role="button">Continue Shopping</button>
+				</div>
+				
+			</div>
+		</div>
+
+	</div>
+  </div>
+</div>
+</div>            
+<!-- container -->
+
+</ul>
+</div>
+    <hr style = "border-top:1px dotted #ccc;"/>
+    <div id = "bg-background" class = "col-md-12">
+    <hr style = "border-top:1px groovy #ccc;"/>
+
+    <div class="col-md-4"    ng-repeat="product in products" >
+  <div class="card text-xs-center" style="background: #ccc">
+    <div class="card-block">
+     <img ng-src="{{product.image}}" style="width:350px; height: 300px; background: #080808"/>
+     <h5 class="card-title">{{product.name}}</h5>
+      <p class="card-text price">R{{product.price}}</p>
+      <button class="btn btn-warning" ng-click="addToCart(product)" >Add to Cart</button> </div>
+  </div>
+</div>
+</div> 
+    
+
+        
+     <div class="container demo">
+	<!-- Shopping Cart Modal -->
+	<div class="modal right fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+                          <div class="modal-header">
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                  <span aria-hidden="true"><h2 style="background: #ffffff">&times;</h2></span></button>
+				<h4 class="modal-title" id="myModalLabel2">MY CART</h4>
+			  </div>
+
+        <div class="modal-body">
+                <table class = "table">
+                        <thead>
+                                <tr>
+                                    <th>Product</th>
+                                        <th>Image</th>
+                                        <th>Price</th>
+                                        <th>Action</th>
+                                </tr>
+                        </thead>
+                        <tbody>
+                                <tr ng-repeat = "cart in cartItems" ng-init = "setTotals(cart)">
+                                        <td>{{cart.name}}</td>
+                                        <td> <img ng-src="{{cart.image}}" style="width:40px;height: 50px;"/></td>
+                                        <td>R{{cart.price}}</td>
+                                        <td> <button ng-click="increase(item)" class="btn btn-primary">+</button> 
+                                             <button ng-click="decrease(item)" class="btn btn-danger">-</button></td>
+                                </tr>
+                                <tr>
+                                        <td align = "right">Total</td>
+                                        <td>R{{total}}</td>
+                                </tr>
+                               <tr>
+                                   <td></td>
+                      <td><a  href="" class="btn btn-primary" ng-click="checkOut()">Checkout</a></td>
+
+                               </tr>
+                        </tbody>
+                </table>
+            
+            
+            
+            
+        </div>
+</div>
+
+
+
+
+</div><!-- modal-content -->
+</div><!-- modal-dialog -->
+</div><!-- modal -->
+
+
