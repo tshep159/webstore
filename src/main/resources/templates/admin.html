@@ -1,0 +1,683 @@
+<style>
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700');
+@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+
+*, *:before, *:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100vh;
+}
+
+body {
+  font: 14px/1 'Open Sans', sans-serif;
+  color: #555;
+  background: #eee;
+}
+
+h1 {
+  padding: 50px 0;
+  font-weight: 400;
+  text-align: center;
+}
+
+p {
+  margin: 0 0 20px;
+  line-height: 1.5;
+}
+
+main {
+  min-width: 100%;
+  max-width: 100%;
+  padding: 50px;
+  margin: 0 auto;
+  background: #fff;
+}
+
+section {
+  display: none;
+  padding: 20px 0 0;
+  border-top: 1px solid #ddd;
+}
+
+input {
+  display: none;
+}
+
+label {
+  display: inline-block;
+  margin: 0 0 -1px;
+  padding: 15px 25px;
+  font-weight: 600;
+  text-align: center;
+  color: #bbb;
+  border: 1px solid transparent;
+}
+
+label:before {
+  font-family: fontawesome;
+  font-weight: normal;
+  margin-right: 10px;
+}
+
+label[for*='1']:before { content: '\f1cb'; }
+label[for*='2']:before { content: '\f17d'; }
+label[for*='3']:before { content: '\f16b'; }
+label[for*='4']:before { content: '\f1a9'; }
+
+label:hover {
+  color: #888;
+  cursor: pointer;
+}
+
+input:checked + label {
+  color: #555;
+  border: 1px solid #ddd;
+  border-top: 2px solid orange;
+  border-bottom: 1px solid #fff;
+}
+
+#tab1:checked ~ #content1,
+#tab2:checked ~ #content2,
+#tab3:checked ~ #content3,
+#tab4:checked ~ #content4,
+#tab5:checked ~ #content5,
+#tab6:checked ~ #content6,
+#tab7:checked ~ #content7{
+  display: block;
+}
+
+@media screen and (max-width: 650px) {
+  label {
+    font-size: 0;
+  }
+  label:before {
+    margin: 0;
+    font-size: 18px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  label {
+    padding: 15px;
+  }
+}
+</style>
+<a href="#!/logout"  class="btn btn-primary fa fa-unlock">Sign Out</a>	
+
+<main>
+  
+  <input id="tab1" type="radio" name="tabs" />
+  <label for="tab1">Users</label>
+    
+  <input id="tab2" type="radio" name="tabs"/>
+  <label for="tab2">Products</label>
+    
+  <input id="tab3" type="radio" name="tabs"/>
+  <label for="tab3">Restaurants</label>
+    
+  <input id="tab4" type="radio" name="tabs"/>
+  <label for="tab4">Orders</label>
+    
+   <input id="tab5" type="radio" name="tabs"/>
+  <label for="tab5">Drivers</label>
+  
+   <input id="tab6" type="radio" name="tabs"/>
+  <label for="tab6">Requests</label>
+     <input id="tab7" type="radio" name="tabs"/>
+  <label for="tab7">Manage User</label>
+  
+    
+  <section id="content1">
+   <style>
+    .header {
+	width: 40%;
+	margin: 50px auto 0px;
+	color: white;
+	background: #7926c1;
+	text-align: center;
+	border: 1px solid #B0C4DE;
+	border-bottom: none;
+	border-radius: 10px 10px 0px 0px;
+	padding: 20px;
+    }
+</style>     
+
+<center>
+        <form ng-controller="registerController"  ng-submit="addUser()"> 
+    <div class="header">
+    <h2>Add User</h2>
+    </div>
+
+ <input type="text" ng-model="name" class="form-control" id="usr" style="width: 40%;text-align: center;"/>
+    <label for="sur">Description </label>
+    <input type="text" ng-model="desc" class="form-control" id="sur" style="width: 40%;text-align: center;"/>
+    <label>Street</label>
+    <input type="text" ng-model="street" style="width: 40%;text-align: center;"  class="form-control" id="email"/>
+    <label for="pass">Town   </label>
+    <input type="cell" ng-model="town" style="width: 40%;text-align: center;" class="form-control" id="pass"/>
+    <label for="ccell">Contact No  </label>
+    <input type="text" ng-model="cell" style="width: 40%;text-align: center;" class="form-control" id="ccell"/>
+    <label for="ccell">Email  </label>
+    <input type="email" ng-model="email" placeholder="someone@emil.com" style="width: 40%;height: 30%;text-align: center;" class="form-control" id="ccell"/>
+      <br/>
+    <input type="file" id="filePickerImage" ng-model="filePickerImage" class="form-control" style="width: 40%;height:30%;" accept="image/png"  />
+ 
+    <br/>
+<script>
+  $('#myStateButton').on('click', function () {
+    $(this).button('complete') // button text will be "finished!"
+  })
+</script>
+<input type="submit" class="btn " ng-click="addUser()" name="Register" style="width: 25%;background: #7926c1; align:left;" />
+</form>
+</center>
+<div class="col-lg-offset-2 col-lg-offset-2">
+<div class="panel-heading"><h2>Users</h2>
+<input class="form-control ng-valid" placeholder="Search..." style="width: 40%;text-align:center;" ng-model="searchKeyword" type="text"/>
+</div>
+<div class="panel-body">
+<table class="table table-striped"  >
+<thead>
+    <tr>
+        <th> Id</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th>Number</th>
+          <th>Password</th>
+        <th>Role</th>
+         <th>Active</th>
+
+
+        <th>Action</th>
+        <th style="width: 90px"></th> 
+    </tr>
+</thead>
+<tbody>
+    <tr ng-repeat="u in listCustomers | filter: searchKeyword">
+        
+        <td>{{u.id}}</td>
+        <td>{{u.firstName}}</td>
+        <td>{{u.lastName}}</td>
+        <td>{{u.email}}</td>
+        <td>{{u.contactNumber}}</td>
+        <td>{{u.password}}</td>
+        <td>{{u.role}}</td>
+        <td>{{u.enabled}}</td>
+        <td>
+            <button class="btn btn-danger" ng-click="removeRow(users.name)" > Delete </button>
+            <button class="btn btn-primary" ng-click="updateUserInformation()">Edit</button>
+
+        </td>
+        
+        
+    </tr> 
+</tbody>
+</table>
+</div>
+</div>
+
+
+
+  </section>
+    
+  <section id="content2">
+   
+  <style>
+    .header {
+	width: 40%;
+	margin: 50px auto 0px;
+	color: white;
+	background: #7926c1;
+	text-align: center;
+	border: 1px solid #B0C4DE;
+	border-bottom: none;
+	border-radius: 10px 10px 0px 0px;
+	padding: 20px;
+    }
+</style> 
+
+
+            <div class="header">
+                <h2>Add Product</h2>
+            </div>
+<center>
+    <br/>
+    <form name="productForm" ng-submit="saveProd()">
+     
+                <input type="text" class="form-control" id="prod_name" ng-model="name" placeholder="Product Name" style="width: 40%;text-align:center;"  required=""/>
+          <br/>
+                <input type="text" class="form-control" id="password" ng-model="description" placeholder="Product Description" style="width: 40%;text-align:center;"  required=""/>
+          <br/> 
+                <input type="text" class="form-control" id="password" ng-model="price" style="width: 40%;text-align:center;" required=""/>
+          <br/> 
+           
+                <input type="file" id="filePickerImage" ng-model="filePickerImage" class="form-control" style="width: 40%;text-align:center;"  accept="image/png"  />
+                 <br/><br/>
+                 
+                <button class="btn" id="submit" type="submit" style="width: 40%;background: #7926c1;" >Add </button>
+                 <br/> <br/>
+    </form>
+  </center>
+   <table class="table table-striped"  >
+<thead>
+    <tr>
+        <th> Id</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Price</th>
+        <th>Restaurant</th>
+        <th>Image</th>
+         <th>Active</th>
+
+
+        <th>Action</th>
+        <th style="width: 90px"></th> 
+    </tr>
+</thead>
+<tbody>
+    <tr ng-repeat="product in products">
+        <td>{{product.id}}</td>
+        <td>{{product.name}}</td>
+        <td>{{product.description}}</td>
+        <td>{{product.price}}</td>
+       <td></td>
+       <td><img ng-src="{{product.image}}" style="width:40px; height: 40px;"/></td>
+       <td>{{product.active}}</td>
+        <td>
+            <button class="btn btn-danger" ng-click="delete($index)" > Delete </button>
+            <button class="btn btn-primary" ng-click="updateUserInformation()">Edit</button>
+
+        </td>
+    </tr> 
+</tbody>
+</table>
+           
+
+
+  </section>
+    
+  <section id="content3">
+ 
+      <form name="resturantForm"> 
+            <div class="header">
+            <h2>Add Restaurant</h2>
+            </div>
+
+
+    <center>
+    <label for="usr">Restaurant Name  </label>
+
+    <input type="text" ng-model="name" class="form-control" id="usr" style="width: 40%;text-align: center;"/>
+    <label for="sur">Description </label>
+    <input type="text" ng-model="desc" class="form-control" id="sur" style="width: 40%;text-align: center;"/>
+    <label>Street</label>
+    <input type="text" ng-model="street" style="width: 40%;text-align: center;"  class="form-control" id="email"/>
+    <label for="pass">Town   </label>
+    <input type="cell" ng-model="town" style="width: 40%;text-align: center;" class="form-control" id="pass"/>
+    <label for="ccell">Contact No  </label>
+    <input type="text" ng-model="cell" style="width: 40%;text-align: center;" class="form-control" id="ccell"/>
+    <label for="ccell">Email  </label>
+    <input type="email" ng-model="email" placeholder="someone@emil.com" style="width: 40%;height: 30%;text-align: center;" class="form-control" id="ccell"/>
+      <br/>
+    <input type="file" id="filePickerImage" ng-model="filePickerImage" class="form-control" style="width: 40%;height:30%;" accept="image/png"  />
+                
+    
+    <br/>
+    <input type="submit" class="btn btn-success" ng-click="addrest()"  name="AddRst" style="width: 40%; height: 10%;background: #7926c1;text-align: center;" />
+    </center>
+    </form>
+
+
+         <table class="table table-striped"  >
+<thead>
+    <tr>
+            <th> Id</th>
+        <th>First Name</th>
+        <th>Slogan</th>
+        <th>Email</th>
+        <th>Number</th>
+        <th>Password</th>
+        <th>Role</th>
+         <th>Active</th>
+
+
+        <th>Action</th>
+        <th style="width: 90px"></th> 
+    </tr>
+</thead>
+<tbody>
+    <tr ng-repeat="u in rests">
+        <td>{{u.id}}</td>
+        <td>{{u.firstName}}</td>
+        <td>{{u.lastName}}</td>
+        <td>{{u.email}}</td>
+        <td>{{u.contactNumber}}</td>
+        <td>{{u.password}}</td>
+        <td>{{u.role}}</td>
+        <td>{{u.enabled}}</td>
+       <td>
+            <button class="btn btn-danger" ng-click="delete($index)" > Delete </button>
+            <button class="btn btn-primary" ng-click="updateUserInformation()">Edit</button>
+
+        </td>
+    </tr> 
+</tbody>
+</table>
+  </section>
+    
+  <section id="content4">
+<table class="table table-striped"  >
+<thead>
+    <tr>
+        <th> Id</th>
+        <th>email</th>
+        <th>Price</th>
+        <th>Date</th>
+        <th>Status</th>
+        <th>Type</th>
+        
+        <th>Product Name</th>
+     
+
+
+        <th>Action</th>
+        <th style="width: 90px"></th> 
+    </tr>
+</thead>
+<tbody>
+    <tr ng-repeat="order in orders">
+        <td>{{order.orderDetailsId}}</td>
+        <td>{{order.user_id}}</td>
+        <td>{{order.price}}</td>
+        <td>{{order.dateCreated}}</td>
+        <td>{{order.status}}</td>
+        <td>{{order.type}}</td>
+        <td>{{order.name}}</td>
+        
+        
+       <td>
+            <button class="btn btn-danger" ng-click="delete($index)" > Delete </button>
+            <button class="btn btn-primary" ng-click="updateUserInformation()">Edit</button>
+
+        </td>
+    </tr> 
+</tbody>
+</table>
+  </section>
+    <section id="content5">
+ <table class="table table-striped"  >
+    <thead>
+       <tr>
+        <th> Id</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th>Number</th>
+        <th>Password</th>
+        <th>Role</th>
+        <th>Active</th>
+        <th>Action</th>
+        <th style="width: 90px"></th> 
+    </tr>
+</thead>
+<tbody>
+    <tr ng-repeat="u in drivers">
+        <td>{{u.id}}</td>
+        <td>{{u.firstName}}</td>
+        <td>{{u.lastName}}</td>
+        <td>{{u.email}}</td>
+        <td>{{u.contactNumber}}</td>
+        <td>{{u.password}}</td>
+        <td>{{u.role}}</td>
+        <td>{{u.enabled}}</td>
+       <td>
+<button class="btn btn-danger" ng-click="delete($index)" > Delete </button>
+ <button class="btn btn-primary" ng-click="updateUserInformation()">Edit</button>
+     </td>
+    </tr> 
+  </tbody>
+</table>
+  </section>
+  
+    <section id="content6">
+        <h1>Scroll down to see All Requests</h1>
+  </section>
+      <section id="content7">
+         
+         <div class="col-lg-6">
+  <div class="panel-heading">
+    <h3 class="panel-title">Manage User</h3>
+  </div>
+  <div class="panel-body">
+  
+    <div class="">
+        <center>
+		<form ng-submit="updateCustomer()" style=' color:white; padding:20px 20px 20px 20px'>
+		  <div class="form-group">
+		    <label>Id</label>
+		    <input type="text" class="form-control" style="width: 80%;text-align: center;" ng-model="selectedCustomer.user_id" disabled="disabled"/>
+		  </div>
+		  <div class="form-group">
+		    <label>Name</label>
+		    <input type="text" class="form-control" style="width: 80%;text-align: center;" ng-model="selectedCustomer.firstName"/>
+		  </div>
+		  <div class="form-group">
+		    <label>Last Name</label>
+		    <input type="text" class="form-control" style="width: 80%;text-align: center;" ng-model="selectedCustomer.lastName"/>
+		  </div>
+		  <div class="form-group">
+		    <label>Email</label>
+                    <input type="text" class="form-control" style="width: 80%;text-align: center;" ng-model="selectedCustomer.email" disabled="disabled"/>
+		  </div>
+		  <div class="form-group">
+		    <label>Cell</label>
+		    <input type="text" class="form-control" style="width: 80%;text-align: center;" ng-model="selectedCustomer.contactNumber"/>
+		  </div>
+                    
+                 
+                    
+                    
+                     <div class="form-group">
+		    <label>Password</label>
+		    <input type="password" class="form-control" style="width: 80%;text-align: center;" ng-model="selectedCustomer.password"/>
+		  </div>
+                     <div class="form-group">
+		    <label>Role</label>
+		    <select ng-model="selectedCustomer.role" style="width: 80%;text-align: center;" class="form-control">
+                        <option value="admin">admin</option>
+                        <option value="partner">partner</option>
+                        <option value="customer">customer</option>
+                        <option value="driver">driver</option>
+                      </select>
+		  </div>
+                    
+                    <div class="form-group">
+		    <label>Status</label>
+                    <select ng-model="selectedCustomer.enabled" style="width: 80%;text-align: center;" class="form-control">
+                        <option value="true">Activate</option>
+                        <option value="false">Deactivate</option>
+                        
+                      </select>
+		  </div>
+		  <button type="submit" class="btn btn-default">Update</button>
+		</form>
+        </center>
+		<!-- Update Messages -->
+		<div ng-if="putMessage!==undefined">
+			<div class="alert alert-success alert-dismissable" ng-if="!error">
+				<a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+			  	<strong>{{putMessage}}</strong>
+			</div>
+			<div class="alert alert-danger alert-dismissable" ng-if="error">
+				<a class="close" data-dismiss="alert" aria-label="close">×</a>
+				<strong>{{putMessage}}</strong>
+			</div>
+		</div>
+    </div>
+      <br/>
+      <br/>
+      <input class="form-control ng-valid" placeholder="Search by Id or Name" style="width: 50%;text-align:center;" ng-model="searchKey" type="text"/>
+
+
+    <div ng-repeat="cust in listCustomers | filter:searchKey">
+	    <form class="form-inline" ng-submit="selectCustomer($index)">
+		  <div class="form-group">
+		    <label for="id">Id:</label>
+		    <input type="text" class="form-control" style="width: 80%;text-align: center;" id="id" ng-model="cust.user_id" disabled="disabled"/>
+		  </div>
+		  <div class="form-group">
+		    <label for="name">Name:</label>
+		    <input type="text" class="form-control" style="width: 80%;text-align: center;" id="name" ng-model="cust.firstName" disabled="disabled"/>
+		  </div>
+		  <button type="submit" class="btn btn-default">Select</button>
+		</form>
+    </div>
+  </div>
+</div>
+
+  </section>
+</main>
+
+
+
+
+<!--
+<div class="container">
+         
+
+   
+
+                                    
+                           
+        
+                    <div class="header">
+                    <h2>Add Product</h2>
+                        </div>
+                <center>
+                   
+                <form  ng-controller="productController">
+                Product Name<br/>
+                <input type="text" ng-model="pro.name" class="form-control" style="width: 40%;" name="name" value=""/><br/>
+                Product Code<br/>
+                <input type="text" ng-model="pro.code" class="form-control" style="width: 40%;" name="code" value="" /><br/>
+                Description<br/>
+                <input type="text" ng-model="pro.description" class="form-control" style="width: 40%;" name="description" value="" /><br/>
+                Quantity<br/>
+                <input type="text" ng-model="pro.quantity" class="form-control" style="width: 40%;" name="quantity" value="" /><br/>
+                Price<br/>
+                <input type="text" ng-model="pro.price" class="form-control" style="width: 40%;" name="price" value="" /><br/>
+               <input type="file" id="filePickerImage" ng-model="filePickerImage" accept="image/png"  /><br/>
+                <img ng-src="{{pro.image}}" style="width: 40%; height:200px;"   name="image"/>
+                <br/><br/>
+             
+
+                <button type="submit" class="btn btn-success" style="width: 40%; height: 150%;background: #5F9EA0;text-align:" ng-click="saveprod()">Add Product</button>
+                
+                </form>
+                
+                </center>
+</div>
+-->
+  <!--
+    <div>
+      
+     <h2>Products</h2>
+        <table ng-show="products.length > 0">
+            <tr ng-repeat="product in products">
+                <td>
+                    {{product.name}}
+                </td>   
+                <td>
+                    {{product.price}}
+                </td>   
+                <td>
+                    <button ng-click="addCartItem(prod)" ></button>
+                </td>
+            </tr>
+    </table>
+       -->
+     
+    <!--   
+<div >
+    <div>
+        <h2>Products</h2>
+
+       
+        <table ng-show="products.length > 0">
+            <tr ng-repeat="product in products ">
+                <td>
+                    {{product.name}}
+                </td>   
+                <td>
+                    {{product.price}}
+                </td>  
+                 
+                <td>
+                    {{product.quantity}}
+                </td>   
+                <td>
+                    <button ng-click="addCartItem(product)" >Add To Cart</button>
+                </td>
+            </tr>
+        </table>
+
+        <h2>Shopping cart</h2>
+            <table ng-show="cartItems.length > 0">
+            <tr>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>&nbsp;</th>
+            </tr>
+            <tr ng-repeat="item in cartItems">
+                <td>
+                    {{item.name}}
+                </td>   
+                <td>
+                    {{item.price}}
+                </td>   
+                <td>
+                    {{item.quantity}}
+                </td>
+                <td> 
+                    <button ng-click="increase(item)">+</button> 
+                    <button ng-click="decrease(item)">-</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    {{ cartSum() }}
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+    </div>-->
+      
+               <h1> Requests</h1>
+<div class="row">
+<div class="col-lg-4 col-md-6 mb-4" ng-repeat="product in requests">
+      <div class="card h-100">
+      
+        <div class="card-body">
+          <h4 class="card-title">
+            <a href="#">{{product.name}}</a>
+          </h4>
+            <h5>Request Type  {{product.description}}</h5>
+           <h5 class="card-title">________________</h5>
+            <p class="card-text text">User Email: {{product.email}}</p>
+         
+           
+           <!-- <p class="card-text text">Product Name :{{product.name}}</p>
+            --></div>
+        <div class="card-footer">
+            <small class="text-muted"><center><a class="btn btn-primary" href="mailto:{{product.email}}">Send Mail</a></center></small>
+        </div>
+      </div>
+    </div>
+    </div>
