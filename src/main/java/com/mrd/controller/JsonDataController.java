@@ -27,15 +27,7 @@ public class JsonDataController {
 				
 	}	
 	
-//	
-//	@RequestMapping("/all/products")
-//	@ResponseBody
-//	public List<Product> getAllProducts() {
-//		
-//		return productDAO..findAll();
-//				
-//	}
-//
+
 	@RequestMapping("/show/user/{user_id}/products")
 	@ResponseBody
 	public Set<Product> getProductsByRestaurant(@PathVariable Integer user_id) {
@@ -43,9 +35,4 @@ public class JsonDataController {
 		return productDAO.listProduct(user_id);
 				
 	}
-//	
-//	
-//
-//	
-//	
 }

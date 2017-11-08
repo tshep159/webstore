@@ -38,13 +38,9 @@ public class UserController {
     @Autowired
     ProductService productService;
     
-   
+   /*user registration*/
     @RequestMapping(method = RequestMethod.POST, value = "/register")
     public void Register(@RequestBody User user){
-        
- //User cus = new User(status, status, status, status, status, status);
-   // userRepository.findAll();
-
          /*generating user password*/
          Random rand= new Random();
     for (int idx = 1; idx <= 10; ++idx){
@@ -56,49 +52,41 @@ public class UserController {
     try{
         notificationService.sendNotification(user);
     }catch(MailException e){
-       // logger.info("email error"+ e.getMessage());
-        //  System.out.println("chech email settings");   
         }
         System.out.println("data inserted to db");   
     break;
 }
 
-}
-    
+}  
+    /*fetching users*/
  @GetMapping("list/list")
 public List<User>listCustomer()
 {
     return (List<User>) userService.findAll();
 }
-    
-    
+/*user signin*/ 
 @RequestMapping(value="/login/user", produces ={MediaType.APPLICATION_JSON_VALUE})
 public User login(@RequestParam String email,String password ){
   return userService.login(email, password);
 }
-        
-        
-        
-//@RequestMapping("/show/user/{user_id}/products")
-//@ResponseBody
-//public List<Product> getProductsByRestaurant(@PathVariable Integer user_id) {
-//  return productService.listActiveProductsByCategory(user_id);
-//}
- 
+
 @RequestMapping(value="/user/{user_id}",produces ={MediaType.APPLICATION_JSON_VALUE})
 @ResponseBody
-    public User update(User user) {
+public User update(User user) {
     return userService.update(user);
 }
+/*fetch user role*/
 @RequestMapping("/role/{role}") 
 public List<User> byRole(@PathVariable(value="role")String role){
    return userService.listRestaurants(role);
 }
+/*remove user*/
 @RequestMapping(value="/remove/{user_id}", method=RequestMethod.DELETE )
 @ResponseBody
     public void delete(User u) {
     userService.delete(u);
 }
+    /*Update User*/
    @RequestMapping(method = RequestMethod.POST, value = "/update/{user_id}")
 	public String postCustomer(@PathVariable int user_id, @RequestBody User user) {
 		userService.save(user_id, user);

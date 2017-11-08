@@ -30,19 +30,19 @@ public class ProductController {
     private ProductService prodService;
 
     List<Product> prodList = new ArrayList<>();
-    
+    /*Fecthing all products*/
     @RequestMapping(value="/products/all",method = RequestMethod.GET)
     public List<Product> allProducts(){
       return prodService.listProducts();
     }
     
-    
+    /*saving product */
     @RequestMapping(value = "/addProduct",method = RequestMethod.POST)
     public void addProduct(@RequestBody Product product){
         prodService.addProduct(product);
     }
 
-  
+  /*get product by user_id*/
     @RequestMapping(value="/rest/{user_id}/product", produces ={MediaType.APPLICATION_JSON_VALUE}) 
    public Set<Product> byUser(@PathVariable int user_id){
     return prodService.listProduct(user_id);

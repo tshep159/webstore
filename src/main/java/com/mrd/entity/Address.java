@@ -15,7 +15,7 @@ import org.hibernate.validator.constraints.NotBlank;
 @Entity
 public class Address implements Serializable {
 	/**
-	 * 
+	 * private fields
 	 */
 	private static final long serialVersionUID = 5798855191565240782L;
 	@Id
@@ -40,16 +40,15 @@ public class Address implements Serializable {
 	@Column(name = "postal_code")
 	@NotBlank(message = "Please enter postal code")
 	private String postalCode;
-//	private boolean shipping;
-//	private boolean billing;
-        
+
         @Column(name = "email")
 	private String email;
          @Column(name="orderDetailsId")
     private Long orderDetailsId;
+         /*default constructor*/
 	public Address() {
 	}
-
+    /*overloaded constructor*/
     public Address(int id, User user, String addressLineOne, String addressLineTwo, String city, String state, String country, String postalCode, String email, Long orderDetailsId) {
         this.id = id;
         this.user = user;
@@ -59,12 +58,11 @@ public class Address implements Serializable {
         this.state = state;
         this.country = country;
         this.postalCode = postalCode;
-//        this.shipping = shipping;
-//        this.billing = billing;
+
         this.email = email;
         this.orderDetailsId = orderDetailsId;
     }
-
+/*getters and setters*/
     public int getId() {
         return id;
     }
@@ -128,22 +126,6 @@ public class Address implements Serializable {
     public void setPostalCode(String postalCode) {
         this.postalCode = postalCode;
     }
-//
-//    public boolean isShipping() {
-//        return shipping;
-//    }
-//
-//    public void setShipping(boolean shipping) {
-//        this.shipping = shipping;
-//    }
-//
-//    public boolean isBilling() {
-//        return billing;
-//    }
-//
-//    public void setBilling(boolean billing) {
-//        this.billing = billing;
-//    }
 
     public String getEmail() {
         return email;

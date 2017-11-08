@@ -15,14 +15,5 @@ import org.springframework.data.jpa.repository.Query;
  * @author User
  */
 public interface RestaurantsRepository extends JpaRepository <Restaurant, Long>{
-           //displaying * active products
-         
-         // public Restaurant get(int id);
-//    @Query("SELECT p from Product p where p.id = :rest_id ")
-//    public Restaurant get(Long rest_id);
-
-       
-  @Query("SELECT u from User u where u.email = :email AND u.password = :password")
-    public Restaurant findByEmailAndPassword(String email ,String password );
 
 }

@@ -42,14 +42,11 @@ public class OrderService {
         orOBJ.setEmail(orderDetails.getEmail());
         orOBJ.setDateCreated(orderDetails.getDateCreated());
         orOBJ.setStatus(orderDetails.getStatus());
-//        orOBJ.setType(orderDetails.getType());
-       orOBJ.setProduct(orderDetails.getProduct());
+        orOBJ.setProduct(orderDetails.getProduct());
         orOBJ.setName(orderDetails.getName());
         orOBJ.setPrice(orderDetails.getPrice());
-      
-       // orOBJ.setAddress(orderDetails.getAddress());
-        
-        return orderDetailsRepository.save(orOBJ);
+          
+          return orderDetailsRepository.save(orOBJ);
     }
  
    public void updateUserOrder(Long id, OrderDetails userOrders)

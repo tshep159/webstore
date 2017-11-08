@@ -15,8 +15,5 @@ import org.springframework.data.repository.CrudRepository;
  */
 public interface OrderDetailsRepository extends CrudRepository<OrderDetails, Long>{
     
-    
-
-    //@Query("SELECT o from Address,Payment o where o.orderDetailsId = :orderDetailsId ")
-   // public OrderDetails findOrderAddressANDPayment();
+ 
 }

@@ -32,14 +32,7 @@ public class ProductService {
     }
     
     public void addProduct(Product prod){
-       
-//        Product pro = new Product();
-//        pro.setUser(prod.getUser());
-//        pro.setName(prod.getName());
-//        pro.setDescription(prod.getDescription());
-//        pro.setPrice(prod.getPrice());
-
-        prodRep.save(prod);
+    prodRep.save(prod);
     }
     
     public void removeProd(Product prod){

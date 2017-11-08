@@ -50,16 +50,6 @@ public void SendRequest(Request req) throws MailException{
 
 }
 
-//public void sendNotification(Restaurant  restaurant) throws MailException{
-////send email
-//SimpleMailMessage mail = new SimpleMailMessage();
-//mail.setTo(restaurant.getEmail());
-//mail.setFrom("info@mrdelivery.com");
-//mail.setSubject("Thank You For Orderding");
-//mail.setText("\n Your ");
-//
-//javamailsender.send(mail);
-//}
 
 public void orderNotification(OrderDetails  details) throws MailException{
 //send email

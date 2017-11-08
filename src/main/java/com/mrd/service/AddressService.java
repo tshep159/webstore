@@ -5,8 +5,7 @@
  */
 package com.mrd.service;
 
-//import com.mrd.entity.ShippingAddress;
-//import com.mrd.entity.Address;
+
 import com.mrd.entity.Address;
 import com.mrd.entity.OrderDetails;
 import com.mrd.entity.User;
@@ -27,12 +26,11 @@ public class AddressService {
     public Object findAll(){
         return ar.findAll();
     }
-//    
+  
     public Address save(Address sa){
       
         return ar.save(sa);
     }
-//    
-//    
+   
     
 }

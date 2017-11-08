@@ -5,14 +5,12 @@
  */
 package com.mrd.service;
 
-import com.mrd.entity.Product;
 import com.mrd.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.mrd.repository.UserRepository;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 
 /**
@@ -59,43 +57,11 @@ public class UserService {
     }
   
 
-//     public List<User> listCustomer(){
-//        List<User> customers = new ArrayList<>();
-//        userRepository.allCustomer().forEach(customers::add);
-//        return customers;
-//    }
-// 
-//     public List<User> listDrivers(){
-//        List<User> drivers = new ArrayList<>();
-//        userRepository.allDriver().forEach(drivers::add);
-//        return drivers;
-//    }
-  
-//     public List<User> listRestaurants(){
-//         User rests= null;
-//     List <User> rest =getUsers();
-//        String role="partner";
-////     for(int i=0; i< rest.size();i++){
-////         if(rest.get(i).getRole().equalsIgnoreCase("partner")){
-////             rests =rest.get(i);
-////             
-////         }else {System.out.println("dololo");}
-////     }
-//userRepository.allRestaurants(role).forEach(rest::add);
-//        return (List<User>) rests;
-//       
-//    }
      
       public User update(User user) {
         return userRepository.save(user);
     }
-     
-     
-//   public List<User> listAdmin(){
-//        List<User> admin = new ArrayList<>();
-//        userRepository.allRestaurants().forEach(admin::add);
-//        return admin;
-//    }
+
 
     public List <User> listRestaurants(String role) {
   return userRepository.findAllByRole(role);
@@ -105,14 +71,14 @@ public class UserService {
         userRepository.delete(u);
     }
         public String save(int user_id, User user) {
-    User u = userRepository.findOne(user_id);
-    u.setFirstName(user.getFirstName());
-    u.setLastName(user.getLastName());
-    u.setEmail(user.getEmail());
-   u.setRole(user.getRole());
-    u.setContactNumber(user.getContactNumber());
-    u.setPassword(user.getPassword());
-    //u.setEnabled(user.get);
+            User u = userRepository.findOne(user_id);
+            u.setFirstName(user.getFirstName());
+            u.setLastName(user.getLastName());
+            u.setEmail(user.getEmail());
+            u.setRole(user.getRole());
+            u.setContactNumber(user.getContactNumber());
+            u.setPassword(user.getPassword());
+    
         userRepository.save( u);
     return "success";
     } 

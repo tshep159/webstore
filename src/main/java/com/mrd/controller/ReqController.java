@@ -23,18 +23,19 @@ public class ReqController {
     ReqService  reqService;
     @Autowired
     NotificationService notificationService;
+    /*Posting a Request*/
       @RequestMapping(method = RequestMethod.POST, value = "/request")
     public void Request(@RequestBody Request r){
       reqService.save(r);
-       try{
+      /*using try-catch */ 
+      try{
         notificationService.SendRequest(r);
     }catch(MailException e){
-       // logger.info("email error"+ e.getMessage());
-        //  System.out.println("chech email settings");   
+        
         }
         System.out.println("request inserted to db");
    }
-    
+    /*fetching all requests*/
       @GetMapping("/all/request")
     public List<Request>listRequest()
     {

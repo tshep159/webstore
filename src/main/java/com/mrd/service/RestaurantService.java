@@ -31,21 +31,12 @@ public class RestaurantService {
     public Restaurant save(Restaurant restaurant){
         return restaurantsRepository.save(restaurant);
     }
-          
-//    public List<Restaurant> getAllRestaurants(String name){
-//        List <Restaurant> allrestaurants = new ArrayList<>();
-//       return allrestaurants;
-//    }
-    
+ 
 
     public List<Restaurant> findAll() {
       return restaurantsRepository.findAll();
     }
     
-    /* Getting single category based on id*/
-//     public Restaurant get(Long restaurant_id) {
-//        return  restaurantsRepository.get(restaurant_id);
-//}
 
       public List<Restaurant> getAllRestaurants(){
         List<Restaurant> u = new ArrayList<>();

@@ -27,11 +27,11 @@ public class ReqService {
     return requestRepo.findAll();
     }
  
-    /*add user*/
+    /*add Request*/
     public Request save(Request r){
         return requestRepo.save(r);
     }
-   
+     /*list Request*/
     public List<Request> getUsers(){
         List<Request> r = new ArrayList<>();
         requestRepo.findAll().forEach(r::add);

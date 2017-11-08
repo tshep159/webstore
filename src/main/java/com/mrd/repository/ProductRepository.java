@@ -19,15 +19,8 @@ import org.springframework.data.repository.query.Param;
  */
 public interface ProductRepository extends JpaRepository <Product, Integer>{
 
-//    @Query("FROM Product WHERE active = :active AND user_id = :user_id")
-//    List<Product> listActiveProductsByRestaurant(int rest_id);
+
  @Query("FROM Product WHERE user_id = :user_id")
     Set <Product> findProductByUser(@Param("user_id")int user_id);
-
-//    public Product findOne(Long id);
-//
-////    public void delete(Long id);
-
-   
 
 }
